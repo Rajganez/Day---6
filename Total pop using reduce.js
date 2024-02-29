@@ -6,19 +6,20 @@ xhr.send();
 xhr.onload = function() {
     let arr = JSON.parse(xhr.responseText);
      
-  //Filter the population values
-let pop = (n) => {
-let value = n.population;
-return value;
-}
-let totalPopulation = arr.filter(pop);
-console.log(totalPopulation);
+  //Get all the population values
+let arr1 = [];
+arr.forEach(val => {
+let population1 = val.population;
+arr1.push(population1);
+});
+
+
 // Print the total population of countries using reduce function  
     let finalPop = (pop1,pop2) => {
         let totalPop = pop1 + pop2;
         return totalPop;
     }
-    let finalPopulation = totalPopulation.reduce(finalPop);
+    let finalPopulation = arr1.reduce(finalPop);
     console.log(finalPopulation);
 }
 
